@@ -30,8 +30,8 @@ with cities_cte as (
         lower(trim(ca.customer_city)) as customer_city,
         lower(trim(ca.customer_state)) as customer_state,
         cities_cte.geo_location as customer_geo_location
-    from CUSTOMER_DATA as cd
-    inner join CUSTOMER_ADDRESS as ca
+    from VK_DATA.CUSTOMERS.CUSTOMER_DATA as cd
+    inner join VK_DATA.CUSTOMERS.CUSTOMER_ADDRESS as ca
         on cd.customer_id = ca.customer_id
     inner join cities_cte
         on lower(trim(ca.customer_city)) = lower(trim(cities_cte.city_name)) and lower(ca.customer_state) = lower(cities_cte.state_abbr)
